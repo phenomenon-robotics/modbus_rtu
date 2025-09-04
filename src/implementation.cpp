@@ -166,7 +166,7 @@ void Implementation::input_cb_real_(const std::string &msg) {
   input_promises_mutex_.lock();
 
 // check if buffered data is old enough to be ignored
-#define INPUT_QUEUE_TIMEOUT_MS 60
+#define INPUT_QUEUE_TIMEOUT_MS 100
   auto now = std::chrono::steady_clock::now();
   if (std::chrono::duration_cast<std::chrono::milliseconds>(
           input_queue_last_changed_ - now)
